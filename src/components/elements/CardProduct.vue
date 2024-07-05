@@ -72,19 +72,5 @@ export default {
     font-size: 14px;
     text-align: center;
   }
-
-  // &_btn{
-  //   width: 140px;
-  //   background-color: #3278FF;
-  //   color: #ffffff;
-  //   padding: 8px 16px;
-  //   border: 0;
-  //   margin-top: 12px;
-  //   border-radius: 6px;
-  // }
-
-  // &_btn:hover{
-  //   background-color: #0f4fcf;
-  // }
 }
 </style>
