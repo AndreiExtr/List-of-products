@@ -6,7 +6,10 @@
     <p class="card_title">{{ title }}</p>
     <p class="card_subtitle">{{ subtitle }}</p>
 
-    <ButtonUI />
+    <div class="card_countBt">
+      <p class="card_countBt_count">{{ count }}</p>
+      <ButtonUI />
+    </div>
   </div>
 </template>
 
@@ -30,6 +33,10 @@ export default {
     subtitle: {
       type: String,
       default: 'Подзаголовок по умолчанию'
+    },
+    count: {
+      type: String,
+      default: 'Подзаголовок по умолчанию'
     }
   }
 }
@@ -39,15 +46,15 @@ export default {
 .card {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   width: 312px;
   height: 552px;
   border: 1px solid #D58C51;
-  padding: 16px;
+  padding: 32px 20px;
   gap: 16px;
 
   &_foto{
-    width: 300px;
+    width: 100%;
     height: 270px;
     text-align: center;
   }
@@ -55,7 +62,7 @@ export default {
   &_title{
     font-weight: 500;
     font-size: 17px;
-    text-align: center;
+    text-align: left;
     color: #ffffff;
     margin: 0;
     overflow: hidden; /* скрываем текст, который не помещается в заданную высоту */
@@ -67,10 +74,39 @@ export default {
 
   &_subtitle{
     color: #ffffff;
+    width: 100%;
     margin: 0;
     font-weight: 400;
     font-size: 14px;
-    text-align: center;
+    text-align: left;
+    margin-bottom: auto;
+  }
+
+  &_countBt{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    &_count{
+      font-weight: 500;
+      font-size: 17px;
+      color: #ffffff;
+    }
+  }
+
+  &:hover &_countBt_count {
+      color: #D58C51;
+  }
+
+  &:hover &_title {
+    color: #D58C51;
+  }
+
+  &:hover &_subtitle {
+    color: #D58C51;
   }
 }
+
 </style>

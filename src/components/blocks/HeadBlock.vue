@@ -22,9 +22,9 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 48px 0;
+  padding: 48px 70px;
   z-index: 20;
-  margin: 0 70px;
+  background-color: #161516;
 
   a{
     font-weight: 700;
