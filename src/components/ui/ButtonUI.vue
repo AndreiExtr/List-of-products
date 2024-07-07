@@ -20,7 +20,9 @@ export default {
 
 <style lang="scss" scoped>
 .card_btn{
-  text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     &-icon circle,
     &-icon path {
