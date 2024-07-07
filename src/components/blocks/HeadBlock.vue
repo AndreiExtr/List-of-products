@@ -6,9 +6,11 @@
         <p>3 товара</p>
         <p>на сумму 3 500 ₽</p>
       </div>
-      <div class="head_shopping_bt">
-        <BasketIcon />
-      </div>
+      <router-link to="/shopping">
+        <div class="head_shopping_bt">
+          <BasketIcon />
+        </div>
+      </router-link>
     </div>
   </header>
 </template>
@@ -67,6 +69,7 @@ export default {
       flex-direction: row;
       align-items: center;
       justify-content: center;
+      cursor: pointer;
     }
   }
 }
