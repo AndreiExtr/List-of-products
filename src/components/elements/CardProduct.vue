@@ -8,18 +8,21 @@
 
     <div :style="customCountBtStyle" class="card_countBt">
       <p class="card_countBt_count">{{ count }}</p>
-      <ButtonUI />
+      <AddIcon v-if="isActiveAdd" v-bind:class="{ active: isActiveAdd }"/>
+      <DeleteIcon v-if="isActiveDel" v-bind:class="{ active: isActiveDel }"/>
     </div>
   </div>
 </template>
 
 <script>
-import ButtonUI from '@/components/ui/ButtonUI'
+import AddIcon from '../icons/AddIcon.vue'
+import DeleteIcon from '../icons/DeleteIcon.vue'
 
 export default {
   name: 'CardProduct',
   components: {
-    ButtonUI
+    AddIcon,
+    DeleteIcon
   },
   props: {
     imageSrc: {
@@ -57,6 +60,14 @@ export default {
     customCountBtStyle: {
       type: Object,
       default: () => ({})
+    },
+    isActiveAdd: {
+      type: Boolean,
+      default: true
+    },
+    isActiveDel: {
+      type: Boolean,
+      default: false
     }
   }
 }
@@ -74,7 +85,7 @@ export default {
   gap: 16px;
 
   &_foto{
-    width: 100%;
+    width: auto;
     height: 270px;
     text-align: center;
   }

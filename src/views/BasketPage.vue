@@ -29,6 +29,8 @@
         imageSrc="1.png"
         title="Устрицы по рокфеллеровски"
         count="2 700 ₽"
+        :isActiveAdd="false"
+        :isActiveDel="true"
       />
       <CardProduct
         v-bind:customClass="'custom-card'"
@@ -53,6 +55,8 @@
         imageSrc="2.png"
         title="Свиные ребрышки на гриле с зеленью"
         count="1 600 ₽"
+        :isActiveAdd="false"
+        :isActiveDel="true"
       />
       <CardProduct
         v-bind:customClass="'custom-card'"
@@ -77,6 +81,8 @@
         imageSrc="4.png"
         title="Креветки по-королевски в лимонном соке"
         count="1 820 ₽"
+        :isActiveAdd="false"
+        :isActiveDel="true"
       />
     </div>
 </template>
