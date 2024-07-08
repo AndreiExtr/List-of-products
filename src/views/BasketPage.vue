@@ -7,16 +7,73 @@
   </div>
   <div class="backet_cards">
         <CardProduct
+        v-bind:customClass="'custom-card'"
+        v-bind:customStyle="{
+          border: 'none',
+          gap: '88px',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          flexDirection: 'row',
+          width: '100%',
+          height: 'auto',
+          padding: '32px 0'}"
+        v-bind:customTitleStyle="{
+          width: '100%'}"
+        v-bind:customImgStyle="{
+          height: 'auto',
+          width: 'auto'}"
+        v-bind:customCountBtStyle="{
+          gap: '16px',
+          justifyContent: 'flex-end'}"
         imageSrc="1.png"
         title="Устрицы по рокфеллеровски"
         count="2 700 ₽"
       />
       <CardProduct
+        v-bind:customClass="'custom-card'"
+        v-bind:customStyle="{
+          border: 'none',
+          gap: '88px',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          flexDirection: 'row',
+          width: '100%',
+          height: 'auto',
+          padding: '32px 0'}"
+        v-bind:customTitleStyle="{
+          width: '100%'}"
+        v-bind:customImgStyle="{
+          height: 'auto',
+          width: 'auto'}"
+        v-bind:customCountBtStyle="{
+          gap: '16px',
+          justifyContent: 'flex-end'}"
         imageSrc="2.png"
         title="Свиные ребрышки на гриле с зеленью"
         count="1 600 ₽"
       />
       <CardProduct
+        v-bind:customClass="'custom-card'"
+        v-bind:customStyle="{
+          border: 'none',
+          gap: '88px',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          flexDirection: 'row',
+          width: '100%',
+          height: 'auto',
+          padding: '32px 0'}"
+        v-bind:customTitleStyle="{
+          width: '100%'}"
+        v-bind:customImgStyle="{
+          height: 'auto',
+          width: 'auto'}"
+        v-bind:customCountBtStyle="{
+          gap: '16px',
+          justifyContent: 'flex-end'}"
         imageSrc="4.png"
         title="Креветки по-королевски в лимонном соке"
         count="1 820 ₽"
@@ -61,6 +118,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px
+  gap: 20px;
+  padding: 134px 200px;
 }
 </style>

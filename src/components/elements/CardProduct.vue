@@ -1,12 +1,12 @@
 <template>
-  <div class="card">
-    <div class="card_foto">
+  <div :class="['card', customClass]" :style="customStyle">
+    <div :style="customImgStyle" class="card_foto">
       <img :src="require(`@/img/${imageSrc}`)">
     </div>
-    <p class="card_title">{{ title }}</p>
-    <p class="card_subtitle">{{ subtitle }}</p>
+    <p :style="customTitleStyle" class="card_title">{{ title }}</p>
+    <p v-if="subtitle && subtitle.length > 0" class="card_subtitle">{{ subtitle }}</p>
 
-    <div class="card_countBt">
+    <div :style="customCountBtStyle" class="card_countBt">
       <p class="card_countBt_count">{{ count }}</p>
       <ButtonUI />
     </div>
@@ -32,11 +32,31 @@ export default {
     },
     subtitle: {
       type: String,
-      default: 'Подзаголовок по умолчанию'
+      default: ''
     },
     count: {
       type: String,
       default: 'Подзаголовок по умолчанию'
+    },
+    customClass: {
+      type: [String, Object, Array],
+      default: ''
+    },
+    customStyle: {
+      type: Object,
+      default: () => ({})
+    },
+    customTitleStyle: {
+      type: Object,
+      default: () => ({})
+    },
+    customImgStyle: {
+      type: Object,
+      default: () => ({})
+    },
+    customCountBtStyle: {
+      type: Object,
+      default: () => ({})
     }
   }
 }
@@ -108,5 +128,4 @@ export default {
     color: #D58C51;
   }
 }
-
 </style>
