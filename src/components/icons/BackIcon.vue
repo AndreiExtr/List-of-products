@@ -32,11 +32,12 @@ export default {
   }
 
   &:hover circle {
-    stroke: #FFA500; /* Оранжевый цвет при наведении */
+    fill: #FFA500;
+    stroke: none; /* Оранжевый цвет при наведении */
   }
 
   &:hover path {
-    fill: #FFA500; /* Оранжевый цвет при наведении */
+    fill: #ffffff; /* Оранжевый цвет при наведении */
   }
 }
 </style>

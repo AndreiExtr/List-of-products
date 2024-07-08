@@ -4,7 +4,7 @@
       <img :src="require(`@/img/${imageSrc}`)">
     </div>
     <p :style="customTitleStyle" class="card_title">{{ title }}</p>
-    <p v-if="subtitle && subtitle.length > 0" class="card_subtitle">{{ subtitle }}</p>
+    <p v-if="isActiveSubtitle" v-bind:class="{ active: isActiveSubtitle }" class="card_subtitle">{{ subtitle }}</p>
 
     <div :style="customCountBtStyle" class="card_countBt">
       <p class="card_countBt_count">{{ count }}</p>
@@ -60,6 +60,10 @@ export default {
     customCountBtStyle: {
       type: Object,
       default: () => ({})
+    },
+    isActiveSubtitle: {
+      type: Boolean,
+      default: true
     },
     isActiveAdd: {
       type: Boolean,

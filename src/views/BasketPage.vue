@@ -29,6 +29,7 @@
         imageSrc="1.png"
         title="Устрицы по рокфеллеровски"
         count="2 700 ₽"
+        :isActiveSubtitle="false"
         :isActiveAdd="false"
         :isActiveDel="true"
       />
@@ -55,6 +56,7 @@
         imageSrc="2.png"
         title="Свиные ребрышки на гриле с зеленью"
         count="1 600 ₽"
+        :isActiveSubtitle="false"
         :isActiveAdd="false"
         :isActiveDel="true"
       />
@@ -81,6 +83,7 @@
         imageSrc="4.png"
         title="Креветки по-королевски в лимонном соке"
         count="1 820 ₽"
+        :isActiveSubtitle="false"
         :isActiveAdd="false"
         :isActiveDel="true"
       />
