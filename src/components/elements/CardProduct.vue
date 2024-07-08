@@ -89,9 +89,9 @@ export default {
   gap: 16px;
 
   &_foto{
-    width: auto;
-    height: 270px;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   &_title{
