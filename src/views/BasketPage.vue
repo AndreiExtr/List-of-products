@@ -30,7 +30,7 @@
           justifyContent: 'flex-end'}"
         :imageSrc="product.img"
         :title="product.title"
-        :count="product.count"
+        :price="product.price"
         :isActiveSubtitle="false"
         :isActiveAdd="false"
         :isActiveDel="true"
@@ -66,6 +66,12 @@ export default {
     },
     allPriceProductsInBasket () {
       return this.getAllPriceProductsInBasket
+    }
+  },
+  created () {
+    const savedState = JSON.parse(localStorage.getItem('vuex-state'))
+    if (savedState) {
+      this.$store.replaceState(savedState)
     }
   },
   props: {}

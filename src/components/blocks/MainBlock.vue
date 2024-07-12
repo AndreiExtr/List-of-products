@@ -8,7 +8,7 @@
         :imageSrc="product.img"
         :title="product.title"
         :subtitle="product.subtitle"
-        :count="product.count"
+        :price="product.price"
         :isActiveSubtitle="true"
         :isActiveAdd="true"
         :isActiveDel="false"
@@ -22,7 +22,7 @@
         :imageSrc="product.img"
         :title="product.title"
         :subtitle="product.subtitle"
-        :count="product.count"
+        :price="product.price"
         :isActiveSubtitle="true"
         :isActiveAdd="true"
         :isActiveDel="false"
@@ -44,6 +44,12 @@ export default {
     ...mapGetters(['getProducts']),
     products () {
       return this.getProducts
+    }
+  },
+  created () {
+    const savedState = JSON.parse(localStorage.getItem('vuex-state'))
+    if (savedState) {
+      this.$store.replaceState(savedState)
     }
   },
   props: {

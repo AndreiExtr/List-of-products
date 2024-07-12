@@ -1,14 +1,24 @@
 import { createStore } from 'vuex'
 
+// Функция для сохранения состояния в localStorage
+const saveState = (state) => {
+  try {
+    const serializedState = JSON.stringify(state)
+    localStorage.setItem('vuex-state', serializedState)
+  } catch (err) {
+
+  }
+}
+
 export default createStore({
   state: {
     countProductsInBasket: 0,
     allPriceProductsInBasket: 0,
     products: [
-      { id: 0, img: '1.png', title: 'Устрицы по рокфеллеровски', subtitle: 'Значимость этих проблем настолько очевидна, что укрепление и развитие структуры', count: 2700 },
-      { id: 1, img: '2.png', title: 'Свиные ребрышки на гриле с зеленью', subtitle: 'Не следует, однако забывать, что реализация намеченных плановых', count: 1600 },
-      { id: 2, img: '4.png', title: 'Креветки по-королевски в лимонном соке', subtitle: 'Значимость этих проблем настолько очевидна, что укрепление и развитие структуры обеспечивает широкому кругу', count: 1820 },
-      { id: 3, img: '5.png', title: 'Устрицы по рокфеллеровски', subtitle: 'Значимость этих проблем настолько очевидна, что укрепление и развитие структуры', count: 2700 }
+      { id: 0, img: '1.png', title: 'Устрицы по рокфеллеровски', subtitle: 'Значимость этих проблем настолько очевидна, что укрепление и развитие структуры', price: 2700 },
+      { id: 1, img: '2.png', title: 'Свиные ребрышки на гриле с зеленью', subtitle: 'Не следует, однако забывать, что реализация намеченных плановых', price: 1600 },
+      { id: 2, img: '4.png', title: 'Креветки по-королевски в лимонном соке', subtitle: 'Значимость этих проблем настолько очевидна, что укрепление и развитие структуры обеспечивает широкому кругу', price: 1820 },
+      { id: 3, img: '5.png', title: 'Устрицы по рокфеллеровски', subtitle: 'Значимость этих проблем настолько очевидна, что укрепление и развитие структуры', price: 2700 }
     ],
     basketProducts: []
   },
@@ -21,18 +31,21 @@ export default createStore({
   mutations: {
     incrementProductCount (state) {
       state.countProductsInBasket++
+      saveState(state)
     },
     addProductToBasket (state, product) {
       state.basketProducts.push(product)
       state.countProductsInBasket++
-      state.allPriceProductsInBasket += product.count
+      state.allPriceProductsInBasket += product.price
+      saveState(state)
     },
     removeProductFromBasket (state, productId) {
       const index = state.basketProducts.findIndex(product => product.id === productId)
       if (index !== -1) {
         state.countProductsInBasket--
-        state.allPriceProductsInBasket -= state.basketProducts[index].count
+        state.allPriceProductsInBasket -= state.basketProducts[index].price
         state.basketProducts.splice(index, 1)
+        saveState(state)
       }
     }
   },

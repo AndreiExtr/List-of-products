@@ -7,7 +7,7 @@
     <p v-if="isActiveSubtitle" v-bind:class="{ active: isActiveSubtitle }" class="card_subtitle">{{ subtitle }}</p>
 
     <div :style="customCountBtStyle" class="card_countBt">
-      <p class="card_countBt_count">{{ count }}</p>
+      <p class="card_countBt_count">{{ price }} ₽</p>
       <AddIcon v-if="isActiveAdd" v-bind:class="{ active: isActiveAdd }" @click="addToBasket"/>
       <DeleteIcon v-if="isActiveDel" v-bind:class="{ active: isActiveDel }" @click="removeFromBasket"/>
     </div>
@@ -37,7 +37,7 @@ export default {
     isActiveSubtitle: Boolean,
     customTitleStyle: Object,
     customCountBtStyle: Object,
-    count: Number,
+    price: Number,
     isActiveAdd: Boolean,
     isActiveDel: Boolean
   },
@@ -48,7 +48,7 @@ export default {
         id: this.id,
         img: this.imageSrc,
         title: this.title,
-        count: this.count
+        price: this.price
       }
       this.addProductToBasket(product)
     },
