@@ -8,13 +8,15 @@
 
     <div :style="customCountBtStyle" class="card_countBt">
       <p class="card_countBt_count">{{ count }}</p>
-      <AddIcon v-if="isActiveAdd" v-bind:class="{ active: isActiveAdd }"/>
-      <DeleteIcon v-if="isActiveDel" v-bind:class="{ active: isActiveDel }"/>
+      <AddIcon v-if="isActiveAdd" v-bind:class="{ active: isActiveAdd }" @click="addToBasket"/>
+      <DeleteIcon v-if="isActiveDel" v-bind:class="{ active: isActiveDel }" @click="removeFromBasket"/>
     </div>
   </div>
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 import AddIcon from '../icons/AddIcon.vue'
 import DeleteIcon from '../icons/DeleteIcon.vue'
 
@@ -25,53 +27,81 @@ export default {
     DeleteIcon
   },
   props: {
-    imageSrc: {
-      type: String,
-      required: true
+    id: Number,
+    customClass: String,
+    customStyle: Object,
+    customImgStyle: Object,
+    imageSrc: String,
+    title: String,
+    subtitle: String,
+    isActiveSubtitle: Boolean,
+    customTitleStyle: Object,
+    customCountBtStyle: Object,
+    count: Number,
+    isActiveAdd: Boolean,
+    isActiveDel: Boolean
+    // imageSrc: {
+    //   type: String,
+    //   required: true
+    // },
+    // title: {
+    //   type: String,
+    //   default: 'Заголовок по умолчанию'
+    // },
+    // subtitle: {
+    //   type: String,
+    //   default: ''
+    // },
+    // count: {
+    //   type: String,
+    //   default: 'Подзаголовок по умолчанию'
+    // },
+    // customClass: {
+    //   type: [String, Object, Array],
+    //   default: ''
+    // },
+    // customStyle: {
+    //   type: Object,
+    //   default: () => ({})
+    // },
+    // customTitleStyle: {
+    //   type: Object,
+    //   default: () => ({})
+    // },
+    // customImgStyle: {
+    //   type: Object,
+    //   default: () => ({})
+    // },
+    // customCountBtStyle: {
+    //   type: Object,
+    //   default: () => ({})
+    // },
+    // isActiveSubtitle: {
+    //   type: Boolean,
+    //   default: true
+    // },
+    // isActiveAdd: {
+    //   type: Boolean,
+    //   default: true
+    // },
+    // isActiveDel: {
+    //   type: Boolean,
+    //   default: false
+    // }
+  },
+  methods: {
+    ...mapActions(['addProductToBasket', 'removeProductFromBasket']),
+    addToBasket () {
+      const product = {
+        id: this.id,
+        img: this.imageSrc,
+        title: this.title,
+        count: this.count
+      }
+      this.addProductToBasket(product)
     },
-    title: {
-      type: String,
-      default: 'Заголовок по умолчанию'
-    },
-    subtitle: {
-      type: String,
-      default: ''
-    },
-    count: {
-      type: String,
-      default: 'Подзаголовок по умолчанию'
-    },
-    customClass: {
-      type: [String, Object, Array],
-      default: ''
-    },
-    customStyle: {
-      type: Object,
-      default: () => ({})
-    },
-    customTitleStyle: {
-      type: Object,
-      default: () => ({})
-    },
-    customImgStyle: {
-      type: Object,
-      default: () => ({})
-    },
-    customCountBtStyle: {
-      type: Object,
-      default: () => ({})
-    },
-    isActiveSubtitle: {
-      type: Boolean,
-      default: true
-    },
-    isActiveAdd: {
-      type: Boolean,
-      default: true
-    },
-    isActiveDel: {
-      type: Boolean,
-      default: false
+    removeFromBasket () {
+      this.removeProductFromBasket(this.id)
     }
   }
 }

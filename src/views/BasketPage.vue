@@ -6,7 +6,38 @@
     <a class="basket_head-title">КОРЗИНА С ВЫБРАННЫМИ ТОВАРАМИ</a>
   </div>
   <div class="backet_cards">
-        <CardProduct
+
+    <CardProduct
+        v-for="product in basketProducts"
+        :key="product.id"
+        v-bind:customClass="'custom-card'"
+        v-bind:customStyle="{
+          border: 'none',
+          gap: '16px',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          flexDirection: 'row',
+          width: '100%',
+          height: 'auto',
+          padding: '16px 0'}"
+        v-bind:customTitleStyle="{
+          width: '100%'}"
+        v-bind:customImgStyle="{
+          height: '132px',
+          width: 'auto'}"
+        v-bind:customCountBtStyle="{
+          gap: '16px',
+          justifyContent: 'flex-end'}"
+        :imageSrc="product.img"
+        :title="product.title"
+        :count="product.count"
+        :isActiveSubtitle="false"
+        :isActiveAdd="false"
+        :isActiveDel="true"
+      />
+
+        <!-- <CardProduct
         v-bind:customClass="'custom-card'"
         v-bind:customStyle="{
           border: 'none',
@@ -86,18 +117,20 @@
         :isActiveSubtitle="false"
         :isActiveAdd="false"
         :isActiveDel="true"
-      />
+      /> -->
   </div>
   <div class="backet_decoration">
     <div class="backet_decoration-text">
       <p class="title">ЗАКАЗ НА СУММУ:</p>
-      <p class="count">6 220 ₽</p>
+      <p class="count">{{ allPriceProductsInBasket }} ₽</p>
     </div>
     <ButtonUI />
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 import BackIcon from '@/components/icons/BackIcon.vue'
 import CardProduct from '@/components/elements/CardProduct'
 import ButtonUI from '@/components/ui/ButtonUI'
@@ -108,6 +141,15 @@ export default {
     BackIcon,
     CardProduct,
     ButtonUI
+  },
+  computed: {
+    ...mapGetters(['getBasketProducts', 'getAllPriceProductsInBasket']),
+    basketProducts () {
+      return this.getBasketProducts
+    },
+    allPriceProductsInBasket () {
+      return this.getAllPriceProductsInBasket
+    }
   },
   props: {}
 }

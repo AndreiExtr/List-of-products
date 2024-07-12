@@ -1,7 +1,19 @@
 <template>
   <div class="content_main">
     <div class="content_main_cards1">
-        <CardProduct
+      <CardProduct
+        v-for="product in products"
+        :key="product.id"
+        :id="product.id"
+        :imageSrc="product.img"
+        :title="product.title"
+        :subtitle="product.subtitle"
+        :count="product.count"
+        :isActiveSubtitle="true"
+        :isActiveAdd="true"
+        :isActiveDel="false"
+      />
+        <!-- <CardProduct
         imageSrc="1.png"
         title="Устрицы по рокфеллеровски"
         subtitle="Значимость этих проблем настолько очевидна, что укрепление и развитие структуры"
@@ -24,10 +36,22 @@
         title="Устрицы по рокфеллеровски"
         subtitle="Значимость этих проблем настолько очевидна, что укрепление и развитие структуры"
         count="2 700 ₽"
-      />
+      /> -->
     </div>
     <div class="content_main_cards2">
-        <CardProduct
+      <CardProduct
+        v-for="product in products"
+        :key="product.id + '2'"
+        :id="product.id"
+        :imageSrc="product.img"
+        :title="product.title"
+        :subtitle="product.subtitle"
+        :count="product.count"
+        :isActiveSubtitle="true"
+        :isActiveAdd="true"
+        :isActiveDel="false"
+      />
+        <!-- <CardProduct
         imageSrc="1.png"
         title="Устрицы по рокфеллеровски"
         subtitle="Значимость этих проблем настолько очевидна, что укрепление и развитие структуры"
@@ -50,18 +74,25 @@
         title="Устрицы по рокфеллеровски"
         subtitle="Значимость этих проблем настолько очевидна, что укрепление и развитие структуры"
         count="2 700 ₽"
-      />
+      /> -->
     </div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import CardProduct from '@/components/elements/CardProduct'
 
 export default {
   name: 'MainBlock',
   components: {
     CardProduct
+  },
+  computed: {
+    ...mapGetters(['getProducts']),
+    products () {
+      return this.getProducts
+    }
   },
   props: {
   }

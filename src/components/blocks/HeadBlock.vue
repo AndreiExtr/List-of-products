@@ -3,8 +3,8 @@
     <a>НАША ПРОДУКЦИЯ</a>
     <div class="head_shopping">
       <div class="head_shopping_text">
-        <p>3 товара</p>
-        <p>на сумму 3 500 ₽</p>
+        <p>{{ countProductsInBasket }} товара</p>
+        <p>на сумму {{ allPriceProductsInBasket }} ₽</p>
       </div>
       <router-link to="/shopping">
         <div class="head_shopping_bt">
@@ -16,12 +16,22 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import BasketIcon from '../icons/BasketIcon.vue'
 
 export default {
   name: 'HeadBlock',
   components: {
     BasketIcon
+  },
+  computed: {
+    ...mapGetters(['getCountProductsInBasket', 'getAllPriceProductsInBasket']),
+    countProductsInBasket () {
+      return this.getCountProductsInBasket
+    },
+    allPriceProductsInBasket () {
+      return this.getAllPriceProductsInBasket
+    }
   },
   props: {
   }
