@@ -40,54 +40,6 @@ export default {
     count: Number,
     isActiveAdd: Boolean,
     isActiveDel: Boolean
-    // imageSrc: {
-    //   type: String,
-    //   required: true
-    // },
-    // title: {
-    //   type: String,
-    //   default: 'Заголовок по умолчанию'
-    // },
-    // subtitle: {
-    //   type: String,
-    //   default: ''
-    // },
-    // count: {
-    //   type: String,
-    //   default: 'Подзаголовок по умолчанию'
-    // },
-    // customClass: {
-    //   type: [String, Object, Array],
-    //   default: ''
-    // },
-    // customStyle: {
-    //   type: Object,
-    //   default: () => ({})
-    // },
-    // customTitleStyle: {
-    //   type: Object,
-    //   default: () => ({})
-    // },
-    // customImgStyle: {
-    //   type: Object,
-    //   default: () => ({})
-    // },
-    // customCountBtStyle: {
-    //   type: Object,
-    //   default: () => ({})
-    // },
-    // isActiveSubtitle: {
-    //   type: Boolean,
-    //   default: true
-    // },
-    // isActiveAdd: {
-    //   type: Boolean,
-    //   default: true
-    // },
-    // isActiveDel: {
-    //   type: Boolean,
-    //   default: false
-    // }
   },
   methods: {
     ...mapActions(['addProductToBasket', 'removeProductFromBasket']),
@@ -130,8 +82,8 @@ export default {
     text-align: left;
     color: #ffffff;
     margin: 0;
-    overflow: hidden; /* скрываем текст, который не помещается в заданную высоту */
-    text-overflow: ellipsis; /* добавляем многоточие для обрезанного текста */
+    overflow: hidden;
+    text-overflow: ellipsis;
     white-space: wrap;
     max-width: 100%;
     max-height: 64px;
