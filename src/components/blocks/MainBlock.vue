@@ -17,7 +17,7 @@
     <div class="content_main_cards2">
       <CardProduct
         v-for="product in products"
-        :key="product.id + '2'"
+        :key="product.id"
         :id="product.id"
         :imageSrc="product.img"
         :title="product.title"

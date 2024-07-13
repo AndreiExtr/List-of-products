@@ -5,9 +5,7 @@ const saveState = (state) => {
   try {
     const serializedState = JSON.stringify(state)
     localStorage.setItem('vuex-state', serializedState)
-  } catch (err) {
-
-  }
+  } catch (err) {}
 }
 
 export default createStore({
@@ -38,24 +36,26 @@ export default createStore({
       state.countProductsInBasket++
       state.allPriceProductsInBasket += product.price
       saveState(state)
-    },
-    removeProductFromBasket (state, productId) {
-      const index = state.basketProducts.findIndex(product => product.id === productId)
-      if (index !== -1) {
-        state.countProductsInBasket--
-        state.allPriceProductsInBasket -= state.basketProducts[index].price
-        state.basketProducts.splice(index, 1)
-        saveState(state)
-      }
     }
+    // removeProductFromBasket (state, productId) {
+    //   const index = state.basketProducts.findIndex(product => product.id === productId)
+    //   if (index !== -1) {
+    //     state.countProductsInBasket--
+    //     state.allPriceProductsInBasket -= state.basketProducts.price
+    //     state.basketProducts.splice(index, 1)
+    //     saveState(state)
+    //   } else {
+    //     console.error(`Product with ID ${productId} not found in basket.`)
+    //   }
+    // }
   },
   actions: {
     addProductToBasket ({ commit }, product) {
       commit('addProductToBasket', product)
-    },
-    removeProductFromBasket ({ commit }, productId) {
-      commit('removeProductFromBasket', productId)
     }
+    // removeProductFromBasket ({ commit }, productId) {
+    //   commit('removeProductFromBasket', productId)
+    // }
   },
   modules: {}
 })
