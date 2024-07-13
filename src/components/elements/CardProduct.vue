@@ -51,10 +51,10 @@ export default {
         price: this.price
       }
       this.addProductToBasket(product)
+    },
+    removeFromBasket () {
+      this.removeProductFromBasket(this.id)
     }
-    // removeFromBasket () {
-    //   this.removeProductFromBasket(this.id)
-    // }
   }
 }
 </script>
