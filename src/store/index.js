@@ -38,14 +38,13 @@ export default createStore({
       saveState(state)
     },
     removeProductFromBasket (state, productId) {
-      const index = state.basketProducts.findIndex(product => product.id === productId)
-      if (index !== -1) {
+      const productIndex = state.basketProducts.findIndex(product => product.id === productId)
+      if (productIndex !== -1) {
+        const product = state.basketProducts[productIndex]
+        state.basketProducts.splice(productIndex, 1)
         state.countProductsInBasket--
-        state.allPriceProductsInBasket -= state.basketProducts.price
-        state.basketProducts.splice(index, 1)
+        state.allPriceProductsInBasket -= product.price
         saveState(state)
-      } else {
-        console.error(`Product with ID ${productId} not found in basket.`)
       }
     }
   },

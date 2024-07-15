@@ -28,6 +28,7 @@ export default {
   },
   props: {
     id: Number,
+    productId: Number,
     customClass: String,
     customStyle: Object,
     customImgStyle: Object,
@@ -53,7 +54,7 @@ export default {
       this.addProductToBasket(product)
     },
     removeFromBasket () {
-      this.removeProductFromBasket(this.id)
+      this.$emit('remove-product', this.productId)
     }
   }
 }

@@ -31,9 +31,11 @@
         :imageSrc="product.img"
         :title="product.title"
         :price="product.price"
+        :productId="product.id"
         :isActiveSubtitle="false"
         :isActiveAdd="false"
         :isActiveDel="true"
+        @remove-product="removeFromBasket"
       />
   </div>
   <div class="backet_decoration">
@@ -66,6 +68,11 @@ export default {
     },
     allPriceProductsInBasket () {
       return this.getAllPriceProductsInBasket
+    }
+  },
+  methods: {
+    removeFromBasket (productId) {
+      this.$store.dispatch('removeProductFromBasket', productId)
     }
   },
   created () {
