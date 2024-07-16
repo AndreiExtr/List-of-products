@@ -1,4 +1,7 @@
-# FIGMA
+<h1 style="display: inline;">
+  <img src="./Images/figma.svg" alt="Logo" style="vertical-align: middle; width: 30px;"/> FIGMA
+</h1>
+
 ![img](./Images/1.png)
 ![img](./Images/2.png)
 ![img](./Images/3.png)
